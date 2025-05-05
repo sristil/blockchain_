@@ -21,8 +21,8 @@ contract VotingSystem {
     }
 
     function vote(uint256 _candidateIndex) external {
-        require(!hasVoted[msg.sender], "You have already voted");
-        require(_candidateIndex < candidates.length, "Invalid candidate index");
+        require(!hasVoted[msg.sender], "You have already voted and you cannot vote again");
+        require(_candidateIndex < candidates.length, "Invalid candidate index, please enter a valid one");
 
         hasVoted[msg.sender] = true;
         candidates[_candidateIndex].voteCount++;
